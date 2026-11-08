@@ -27,3 +27,41 @@
   .spotify-controls .player-button{width:44px;height:44px;min-width:44px;font-size:16px}
   .spotify-controls .player-button.play-button{width:52px;height:52px;min-width:52px;font-size:19px}
 }
+
+/* NEXUS tablet and iPad refinement */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+body{overflow-x:hidden}
+button,select,input{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+button,select{font-family:inherit}
+button:focus,select:focus,input:focus{outline:2px solid rgba(185,204,233,.65);outline-offset:2px}
+.card{overflow:hidden}
+.track-name,.artist-name,.pair-status,.music-note{overflow-wrap:break-word;word-wrap:break-word}
+.spotify-device-row select{min-height:40px}
+.spotify-action,.spotify-text-button{min-height:40px}
+@media (min-width:721px) and (max-width:900px){
+ body{padding:16px}
+ .dashboard{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);grid-template-rows:auto;gap:12px}
+ .time-card,.music-card,.quick-card{grid-column:1/-1}
+ .weather-card,.agenda-card{grid-column:auto;min-width:0}
+ .time-card{min-height:210px}.weather-card,.agenda-card{min-height:250px}
+ .quick-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .card{padding:18px}.clock{font-size:clamp(64px,10vw,88px)}
+}
+@media (max-width:720px){
+ body{padding:12px}.card{padding:17px;border-radius:16px}
+ .clock{letter-spacing:-3px}.music-content{margin-top:17px}
+ .album-art{width:76px;height:76px;flex-basis:76px;margin-right:13px}
+ .track-name{font-size:16px}.quick-tile{min-height:76px}
+ .footer{gap:8px;letter-spacing:1px}
+}
+@media (orientation:landscape) and (max-height:600px){
+ body{padding-top:10px;padding-bottom:10px}.topbar{margin-bottom:10px}
+ .dashboard{gap:10px}.card{padding:15px}.time-card{min-height:160px}
+ .clock{font-size:clamp(54px,8vw,76px);margin:8px 0 5px}.time-footer{margin-top:14px}
+}
+@media (prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
+@supports (padding:max(0px)){
+ body{padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right));padding-top:max(12px,env(safe-area-inset-top));padding-bottom:max(12px,env(safe-area-inset-bottom))}
+}
