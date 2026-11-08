@@ -127,3 +127,88 @@ html,body{background:radial-gradient(ellipse at 12% 0%,rgba(50,91,177,.22),trans
 .calendar-day.outside{color:#617697}
 .calendar-day.today{background:linear-gradient(135deg,#8fc4ff,#b39cff);color:#10182c;font-weight:800;box-shadow:0 3px 12px rgba(143,169,255,.28)}
 @media(max-width:900px){.calendar-card{min-height:250px}.calendar-day{width:29px;height:29px}}
+
+
+/* NEXUS spectrum palette: give each dashboard area its own accent */
+:root{
+ --nx-bg:#0b0d18;
+ --nx-text:#f7f5ff;
+}
+html,body{
+ background:
+  radial-gradient(ellipse at 8% 8%,rgba(255,116,143,.16),transparent 32%),
+  radial-gradient(ellipse at 92% 6%,rgba(105,133,255,.19),transparent 34%),
+  radial-gradient(ellipse at 52% 100%,rgba(39,205,183,.10),transparent 38%),
+  #0b0d18;
+}
+.card{border-color:rgba(255,255,255,.12);box-shadow:0 14px 38px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.07)}
+.time-card{
+ background:linear-gradient(125deg,rgba(111,49,75,.98),rgba(70,43,83,.98) 58%,rgba(39,45,86,.98));
+ border-color:rgba(255,139,165,.42);
+}
+.time-card .eyebrow{color:#ffb3c4}
+.time-card .clock{color:#fff4f0;text-shadow:0 4px 28px rgba(255,143,135,.18)}
+.time-card .date-line{color:#f5cbd8}
+.time-card .time-footer{color:#d9a9bd}
+.weather-card{
+ background:linear-gradient(145deg,rgba(18,83,91,.98),rgba(20,52,75,.98));
+ border-color:rgba(83,222,210,.38);
+}
+.weather-card .card-heading{color:#8df2df}
+.weather-location{color:#9fe9e5}
+.weather-icon{color:#79f0e1;text-shadow:0 0 20px rgba(66,231,213,.48)}
+.weather-temp{color:#e7fffb}
+.weather-copy{color:#c0f0ec}
+.weather-details{color:#91d3d0}
+.weather-details b{color:#f0fffc}
+.weather-range{color:#a9e8e1}
+.weather-foot{color:#79bcb9}
+.music-card{
+ background:linear-gradient(145deg,rgba(67,44,105,.98),rgba(37,37,82,.98) 58%,rgba(25,49,83,.98));
+ border-color:rgba(180,139,255,.42);
+}
+.music-card .card-heading{color:#d3baff}
+.spotify-label{color:#a9f5c7}
+.album-art{background:linear-gradient(135deg,#ff7aa8,#a66bff 52%,#4fc8df);box-shadow:0 9px 25px rgba(178,103,255,.25)}
+.track-name{color:#fff8ff}
+.artist-name{color:#d0c4ec}
+.track-state,.spotify-active-device{color:#b7a7e6}
+.spotify-controls .player-button{background:linear-gradient(145deg,#674d9b,#3c477f);border-color:#9273cb;color:#fff}
+.spotify-controls .player-button.play-button{background:linear-gradient(135deg,#ff9fc2,#c5a0ff);color:#291b43;box-shadow:0 5px 20px rgba(207,142,255,.3)}
+.progress-track{background:#453a68}
+.progress-track span{background:linear-gradient(90deg,#ff83ad,#b58cff,#62d9e8)}
+.spotify-action{background:linear-gradient(135deg,#6df0b0,#35d6bb);color:#092d2a;box-shadow:0 4px 15px rgba(53,214,187,.2)}
+.spotify-device-row select,.pair-entry input{background:#302b59;border-color:#68569b;color:#fff}
+.spotify-pair{border-top-color:#514477}
+.pair-code{color:#e0c5ff}
+.calendar-card{
+ background:linear-gradient(145deg,rgba(62,49,111,.98),rgba(38,43,91,.98));
+ border-color:rgba(166,145,255,.4);
+}
+.calendar-card .card-heading{color:#d4c5ff}
+.calendar-nav{color:#f0eaff}
+.calendar-nav button{background:rgba(148,119,230,.2);border-color:#806bc2;color:#f3eaff}
+.calendar-weekdays{color:#c0b2ef;border-bottom-color:#5c508c}
+.calendar-day{color:#f1edff}
+.calendar-day.outside{color:#8178a9}
+.calendar-day.today{background:linear-gradient(135deg,#ffc17e,#ff91bd);color:#352044;box-shadow:0 3px 14px rgba(255,145,189,.32)}
+.quick-card{
+ background:linear-gradient(145deg,rgba(43,54,78,.98),rgba(31,39,63,.98));
+ border-color:rgba(135,163,210,.3);
+}
+.quick-card .card-heading{color:#b9d0ff}
+.quick-tile{border-width:1px;transition:transform .18s ease,border-color .18s ease}
+.quick-tile:nth-child(1){background:linear-gradient(145deg,rgba(119,63,83,.72),rgba(75,47,75,.88));border-color:rgba(255,133,157,.42)}
+.quick-tile:nth-child(1) span{color:#ff9bb2}
+.quick-tile:nth-child(2){background:linear-gradient(145deg,rgba(28,91,104,.78),rgba(30,62,91,.9));border-color:rgba(83,220,211,.4)}
+.quick-tile:nth-child(2) span{color:#78eee0}
+.quick-tile:nth-child(3){background:linear-gradient(145deg,rgba(91,66,137,.78),rgba(58,51,105,.9));border-color:rgba(184,151,255,.42)}
+.quick-tile:nth-child(3) span{color:#c6a5ff}
+.quick-tile:nth-child(4){background:linear-gradient(145deg,rgba(105,77,39,.78),rgba(75,57,43,.9));border-color:rgba(255,194,113,.4)}
+.quick-tile:nth-child(4) span{color:#ffd08c}
+.quick-tile b{color:#f7f5ff}
+.quick-tile small{color:#c2c9df}
+@media(hover:hover){
+ .quick-tile:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.55)}
+}
+@media(prefers-reduced-motion:reduce){.quick-tile{transition:none}}
