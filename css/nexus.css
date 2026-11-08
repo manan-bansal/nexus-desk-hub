@@ -115,3 +115,15 @@ html,body{background:radial-gradient(ellipse at 12% 0%,rgba(50,91,177,.22),trans
 .spotify-controls .player-button{background:linear-gradient(145deg,#263b60,#1c2c49);border-color:#49618b;color:#f4f7ff}
 .spotify-controls .player-button.play-button{background:linear-gradient(135deg,#9bc7ff,#b6a4ff);border-color:transparent;color:#10182c}
 @media(prefers-reduced-transparency:reduce){.card{background:#17233c}}
+
+/* Simple month calendar */
+.calendar-card{min-height:250px}
+.calendar-nav{display:flex;align-items:center;gap:10px;color:#d9e6ff;font-size:10px;letter-spacing:.5px}
+.calendar-nav button{-webkit-appearance:none;appearance:none;border:1px solid #405b87;background:#1c2d4c;color:#dce8ff;border-radius:7px;width:27px;height:27px;font-size:19px;line-height:20px;padding:0;cursor:pointer}
+.calendar-weekdays,.calendar-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));text-align:center}
+.calendar-weekdays{margin-top:20px;padding-bottom:9px;border-bottom:1px solid #34496d;color:#8fa9d1;font-size:9px;font-weight:700}
+.calendar-days{row-gap:5px;margin-top:9px}
+.calendar-day{display:flex;align-items:center;justify-content:center;justify-self:center;width:27px;height:27px;border-radius:50%;font-size:10px;color:#e2ebfb}
+.calendar-day.outside{color:#617697}
+.calendar-day.today{background:linear-gradient(135deg,#8fc4ff,#b39cff);color:#10182c;font-weight:800;box-shadow:0 3px 12px rgba(143,169,255,.28)}
+@media(max-width:900px){.calendar-card{min-height:250px}.calendar-day{width:29px;height:29px}}
