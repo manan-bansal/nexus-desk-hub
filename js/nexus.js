@@ -19,7 +19,7 @@ if(window.crypto&&window.crypto.subtle&&window.crypto.subtle.digest){var bytes=n
 try{
 var math=Math,words=[],K=[],isPrime=function(n){for(var j=2;j*j<=n;j++)if(n%j===0)return false;return n>1},n=0,p=2;
 while(n<64){if(isPrime(p)){if(n<8)words[n]=math.floor((math.sqrt(p)%1)*4294967296);K[n]=math.floor((math.pow(p,1/3)%1)*4294967296);n++}p++}
-var msg=[],i,j;for(i=0;i<s.length;i++)msg.push(s.charCodeAt(i));var bitLen=msg.length*8;msg.push(128);while((msg.length%64)!==56)msg.push(0);for(i=7;i>=0;i--)msg.push(i<4?(bitLen>>>((3-i)*8))&255:0);
+var msg=[],i,j;for(i=0;i<s.length;i++)msg.push(s.charCodeAt(i));var bitLen=msg.length*8;msg.push(128);while((msg.length%64)!==56)msg.push(0);for(i=7;i>=0;i--)msg.push(i<4?(bitLen>>>(i*8))&255:0);
 var H=words.slice(0),rotr=function(x,n){return(x>>>n)|(x<<(32-n))};
 for(i=0;i<msg.length;i+=64){var w=new Array(64);for(j=0;j<16;j++)w[j]=((msg[i+j*4]<<24)|(msg[i+j*4+1]<<16)|(msg[i+j*4+2]<<8)|msg[i+j*4+3])>>>0;for(j=16;j<64;j++){var x=w[j-15],y=w[j-2],a=rotr(x,7)^rotr(x,18)^(x>>>3),b=rotr(y,17)^rotr(y,19)^(y>>>10);w[j]=(w[j-16]+a+w[j-7]+b)>>>0}
 var a0=H[0],b0=H[1],c0=H[2],d0=H[3],e0=H[4],f0=H[5],g0=H[6],h0=H[7];
