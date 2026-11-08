@@ -18,6 +18,7 @@
 <section class="card music-card"><div class="card-heading"><span>NOW PLAYING</span><span class="spotify-label"><i></i> SPOTIFY</span></div>
 <div class="music-content"><div id="album-art" class="album-art"><span>♫</span></div><div class="track-info"><div id="track-name" class="track-name">Connect your Spotify account</div><div id="artist-name" class="artist-name">Control playback on your Spotify devices</div><div class="track-state" id="track-state">NOT CONNECTED</div></div></div>
 <div class="spotify-connect-row"><button id="spotify-connect" class="spotify-action">CONNECT SPOTIFY</button><button id="spotify-disconnect" class="spotify-text-button" style="display:none">DISCONNECT</button></div>
+<div class="spotify-pair"><div id="pair-ipad" style="display:none"><button id="pair-create" class="spotify-action">PAIR THIS IPAD</button><div id="pair-code" class="pair-code"></div></div><div id="pair-mac" style="display:none"><label for="pair-input">APPROVE IPAD PAIRING CODE</label><div class="pair-entry"><input id="pair-input" inputmode="numeric" maxlength="6" placeholder="6-digit code"><button id="pair-approve" class="spotify-action">APPROVE</button></div></div><div id="pair-status" class="pair-status"></div></div>
 <div id="spotify-controls" class="spotify-controls" style="display:none"><div class="spotify-device-row"><label for="spotify-device">PLAYBACK DEVICE</label><select id="spotify-device"><option value="">Active device</option></select></div><div class="player-controls"><button id="spotify-previous" class="player-button" aria-label="Previous track">|◀</button><button id="spotify-toggle" class="player-button play-button" aria-label="Play or pause">▶</button><button id="spotify-next" class="player-button" aria-label="Next track">▶|</button></div><div class="progress-track"><span id="spotify-progress"></span></div><div class="spotify-track-time"><span id="spotify-elapsed">0:00</span><span id="spotify-duration">0:00</span></div></div>
 <div class="music-note" id="spotify-message">Connect to see what's playing. Spotify Premium is required for playback controls.</div></section>
 <section class="card agenda-card"><div class="card-heading"><span>ON YOUR RADAR</span><span class="muted-tag">TODAY</span></div><div class="agenda-date" id="agenda-date">TODAY</div><div class="agenda-empty"><span class="agenda-symbol">▦</span><span>Your day, at a glance.</span><small>Calendar integration comes in a later milestone.</small></div></section>
@@ -25,5 +26,5 @@
 </main>
 <footer class="footer"><span>NEXUS</span><span>BUILT FOR YOUR DESK</span><span>VERSION 0.3</span></footer>
 </div>
-<script src="js/nexus.js?v=spotify-pkce-fallback-2"></script>
+<script src="js/nexus.js?v=cloudflare-pairing-1"></script>
 </body></html>
