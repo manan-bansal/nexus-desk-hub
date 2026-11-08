@@ -65,3 +65,53 @@ button:focus,select:focus,input:focus{outline:2px solid rgba(185,204,233,.65);ou
 @supports (padding:max(0px)){
  body{padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right));padding-top:max(12px,env(safe-area-inset-top));padding-bottom:max(12px,env(safe-area-inset-bottom))}
 }
+
+/* NEXUS vibrant midnight palette */
+:root{
+ --nx-bg:#080d1c;
+ --nx-card:#151f36;
+ --nx-border:#2b3d61;
+ --nx-text:#f4f7ff;
+ --nx-muted:#a6b7d5;
+ --nx-blue:#78a9ff;
+ --nx-cyan:#55d6e8;
+ --nx-violet:#a78bfa;
+ --nx-green:#38e08b;
+}
+html,body{background:radial-gradient(ellipse at 12% 0%,rgba(50,91,177,.22),transparent 38%),radial-gradient(ellipse at 92% 14%,rgba(113,65,190,.17),transparent 34%),var(--nx-bg);color:var(--nx-text)}
+.card{background:linear-gradient(145deg,rgba(27,42,72,.98),rgba(17,27,48,.98));border-color:var(--nx-border);box-shadow:0 12px 34px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.035)}
+.time-card{background:linear-gradient(125deg,#1b3764 0%,#202b55 48%,#262044 100%);border-color:#3b5488}
+.brand-mark{background:linear-gradient(135deg,#8ec5ff,#a99aff);color:#10182c}
+.eyebrow,.card-heading{color:#a9c7f7}
+.top-right,.date-line{color:#c8d8f3}
+.live-dot{background:var(--nx-green);box-shadow:0 0 13px rgba(56,224,139,.75)}
+.weather-icon{color:#7edcff;text-shadow:0 0 18px rgba(85,214,232,.35)}
+.weather-temp{color:#f5f8ff}
+.weather-details{color:#9db0d1}
+.weather-details b{color:#e4edff}
+.weather-range{color:#b7c9e8}
+.spotify-label{color:#8af0b5}
+.spotify-label i{background:var(--nx-green);box-shadow:0 0 9px rgba(56,224,139,.55)}
+.album-art{background:linear-gradient(135deg,#315b9c,#674caa 55%,#1e8b9c);box-shadow:0 8px 22px rgba(68,113,205,.22)}
+.track-name{color:#f5f7ff}
+.artist-name{color:#b8c8e4}
+.track-state,.spotify-active-device{color:#91aee0}
+.player-button{background:linear-gradient(145deg,#263b60,#1c2c49);border-color:#49618b;color:#f4f7ff}
+.player-button.play-button{background:linear-gradient(135deg,#9bc7ff,#b6a4ff);color:#10182c;box-shadow:0 5px 18px rgba(119,157,255,.25)}
+.progress-track{background:#344563}
+.progress-track span{background:linear-gradient(90deg,#55d6e8,#8aaaff,#b49aff)}
+.spotify-action{background:linear-gradient(135deg,#48e69a,#20c978);color:#062314;box-shadow:0 4px 14px rgba(32,201,120,.18)}
+.spotify-text-button{color:#a9c4ee}
+.spotify-device-row select,.pair-entry input{background:#1c2d4c;border-color:#405b87;color:#f0f5ff}
+.spotify-pair{border-top-color:#34496d}
+.pair-code{color:#a9c9ff}
+.agenda-date{color:#c5d8ff}
+.agenda-symbol{color:#8dbbff}
+.agenda-empty{color:#c1d0e8}
+.quick-tile{background:linear-gradient(145deg,#21375b,#192945);border-color:#354e78}
+.quick-tile span{color:#8edcff}
+.quick-tile b{color:#e4edff}
+.quick-tile small,.footer,.tiny-tag,.muted-tag{color:#91a5c7}
+.spotify-controls .player-button{background:linear-gradient(145deg,#263b60,#1c2c49);border-color:#49618b;color:#f4f7ff}
+.spotify-controls .player-button.play-button{background:linear-gradient(135deg,#9bc7ff,#b6a4ff);border-color:transparent;color:#10182c}
+@media(prefers-reduced-transparency:reduce){.card{background:#17233c}}
