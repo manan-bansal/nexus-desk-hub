@@ -2,3 +2,28 @@
 .spotify-pair{margin-top:14px;padding-top:12px;border-top:1px solid #293851}.pair-code{font-size:34px;font-weight:800;letter-spacing:8px;color:#dce8fb;margin-top:10px}.pair-status{font-size:10px;line-height:1.5;color:#91a2bb;margin-top:9px}.pair-entry{display:flex;gap:8px;margin-top:8px}.pair-entry input{width:120px;background:#1b2940;border:1px solid #34445e;border-radius:8px;color:#eef3fb;padding:10px;font-size:16px;letter-spacing:3px}.spotify-pair label{font-size:8px;letter-spacing:1px;color:#71839d}
 
 .spotify-active-device{margin-top:9px;color:#8da2bf;font-size:8px;letter-spacing:1.1px;line-height:1.4}.progress-track span{transition:width .8s linear}
+
+/* Consistent playback controls across desktop Safari and older iPad Safari */
+.spotify-controls .player-controls{display:flex;justify-content:center;align-items:center;gap:22px}
+.spotify-controls .player-button{
+  -webkit-appearance:none;appearance:none;
+  display:inline-flex;align-items:center;justify-content:center;
+  flex:0 0 auto;padding:0;margin:0;
+  width:42px;height:42px;min-width:42px;
+  border:1px solid #34445e;border-radius:50%;
+  background:#202d43;color:#e9f0fa;
+  font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:600;
+  line-height:1;text-align:center;text-shadow:none;
+  box-shadow:none;outline-offset:3px;
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation;
+}
+.spotify-controls .player-button.play-button{
+  width:50px;height:50px;min-width:50px;
+  background:#dbe7f8;color:#111a2a;border:0;font-size:18px;
+}
+.spotify-controls .player-button:disabled{opacity:.4}
+@media(max-width:720px){
+  .spotify-controls .player-controls{gap:25px;margin:16px 0 13px}
+  .spotify-controls .player-button{width:44px;height:44px;min-width:44px;font-size:16px}
+  .spotify-controls .player-button.play-button{width:52px;height:52px;min-width:52px;font-size:19px}
+}
