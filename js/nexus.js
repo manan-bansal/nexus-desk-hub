@@ -41,4 +41,21 @@ byId("spotify-toggle").onclick=function(){command("PUT",currentPlaying?"/me/play
 byId("spotify-device").onchange=function(){selectedDevice=this.value;if(!selectedDevice)return;api("PUT","/me/player",{device_ids:[selectedDevice],play:false},function(err){if(err)message(err);else{message("Playback device selected.");window.setTimeout(refreshPlayer,1000)}})};
 finishAdminLogin();
 if(deviceToken)setPaired();else{byId("pair-ipad").style.display="block";byId("pair-status").textContent="Tap PAIR THIS IPAD to generate a code."}
+
+/* YouTube Music embedded playback */
+var ytPlayer=null,ytReady=false,ytPlaying=false,ytDuration=0,ytTimer=null;
+function ytMessage(s){byId("youtube-message").textContent=s}
+function ytFormat(ms){var sec=Math.floor((ms||0)/1000);return Math.floor(sec/60)+":"+pad(sec%60)}
+function ytUpdate(){if(!ytReady||!ytPlayer)return;try{var duration=ytPlayer.getDuration()||0,current=ytPlayer.getCurrentTime()||0;ytDuration=duration;byId("youtube-seek").value=duration?Math.round(current/duration*1000):0;byId("youtube-elapsed").textContent=ytFormat(current*1000);byId("youtube-duration").textContent=ytFormat(duration*1000);var info=ytPlayer.getVideoData?ytPlayer.getVideoData():null;if(info&&info.title)byId("youtube-track-name").textContent=info.title}catch(e){}}
+function ytStateChange(event){if(!window.YT)return;var state=event.data;ytPlaying=state===YT.PlayerState.PLAYING;byId("youtube-track-state").textContent=state===YT.PlayerState.PLAYING?"NOW PLAYING":(state===YT.PlayerState.PAUSED?"PAUSED":(state===YT.PlayerState.BUFFERING?"BUFFERING":(state===YT.PlayerState.ENDED?"PLAYBACK ENDED":"READY")));byId("youtube-toggle").innerHTML=ytPlaying?'<svg viewBox="0 0 24 24"><path d="M7 5h4v14H7zM15 5h4v14h-4z"/></svg>':'<svg viewBox="0 0 24 24"><path d="m8 5 11 7-11 7z"/></svg>';ytUpdate()}
+function ytReadyCallback(){ytReady=true;ytMessage("Player ready. Paste a YouTube Music playlist or track link.");if(ytTimer)window.clearInterval(ytTimer);ytTimer=window.setInterval(ytUpdate,1000)}
+function ytLoad(){if(!ytReady||!ytPlayer){ytMessage("The YouTube player is still loading. Try again in a moment.");return}var link=byId("youtube-url").value.replace(/^\s+|\s+$/g,""),list=link.match(/[?&]list=([a-zA-Z0-9_-]+)/),video=link.match(/[?&]v=([a-zA-Z0-9_-]{11})/)||link.match(/youtu\.be\/([a-zA-Z0-9_-]{11})/)||link.match(/\/embed\/([a-zA-Z0-9_-]{11})/);if(!link){ytMessage("Paste a YouTube Music playlist or track link first.");return}if(list){ytPlayer.loadPlaylist({list:list[1],listType:"playlist",index:0});ytMessage("Loading playlist…")}else if(video){ytPlayer.loadVideoById(video[1]);ytMessage("Loading track…")}else{ytMessage("That link doesn't look like a YouTube or YouTube Music track/playlist URL.")}}
+function ytError(event){var msgs={2:"Invalid video or playlist link.",5:"This video cannot be played in the HTML5 player.",100:"Video not found or unavailable.",101:"Embedding is disabled for this video.",150:"Embedding is disabled for this video."};ytMessage(msgs[event.data]||"YouTube player error ("+event.data+").")}
+window.onYouTubeIframeAPIReady=function(){ytPlayer=new YT.Player("youtube-player",{height:"200",width:"100%",playerVars:{controls:0,rel:0,playsinline:1,modestbranding:1,iv_load_policy:3},events:{onReady:ytReadyCallback,onStateChange:ytStateChange,onError:ytError}})};
+(function(){var tag=document.createElement("script");tag.src="https://www.youtube.com/iframe_api";tag.async=true;var first=document.getElementsByTagName("script")[0];first.parentNode.insertBefore(tag,first)})();
+byId("youtube-load").onclick=ytLoad;
+byId("youtube-toggle").onclick=function(){if(!ytReady||!ytPlayer)return;if(ytPlaying)ytPlayer.pauseVideo();else ytPlayer.playVideo()};
+byId("youtube-previous").onclick=function(){if(ytReady&&ytPlayer)ytPlayer.previousVideo()};
+byId("youtube-next").onclick=function(){if(ytReady&&ytPlayer)ytPlayer.nextVideo()};
+byId("youtube-seek").onchange=function(){if(ytReady&&ytPlayer&&ytDuration)ytPlayer.seekTo((Number(this.value)/1000)*ytDuration,true)};
 }());
